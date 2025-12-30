@@ -1,0 +1,82 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Swap Command and Option for Backspace/Delete and Tab",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "iso" }
+        }
+    ]
+}
