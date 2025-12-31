@@ -1,4 +1,8 @@
 {
+    "global": {
+        "check_for_updates_on_startup": false,
+        "show_profile_name_in_menu_bar": true
+    },
     "profiles": [
         {
             "complex_modifications": {
@@ -74,20 +78,19 @@
                     }
                 ]
             },
-            "name": "Default profile",
-            "selected": true,
+            "name": "Internal (ISO)",
             "simple_modifications": [
                 {
                     "from": { "apple_vendor_top_case_key_code": "keyboard_fn" },
                     "to": [{ "key_code": "left_command" }]
                 },
                 {
-                    "from": { "key_code": "left_option" },
-                    "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
-                },
-                {
                     "from": { "key_code": "left_command" },
                     "to": [{ "key_code": "left_option" }]
+                },
+                {
+                    "from": { "key_code": "left_option" },
+                    "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
                 },
                 {
                     "from": { "key_code": "right_command" },
@@ -99,6 +102,102 @@
                 }
             ],
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        },
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Swap Command and Option for Backspace/Delete and Tab",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "name": "External (ISO)",
+            "selected": true,
+            "simple_modifications": [
+                {
+                    "from": { "key_code": "left_control" },
+                    "to": [{ "key_code": "left_command" }]
+                },
+                {
+                    "from": { "key_code": "left_command" },
+                    "to": [{ "key_code": "left_control" }]
+                },
+                {
+                    "from": { "key_code": "application" },
+                    "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
+                },
+                {
+                    "from": { "key_code": "right_control" },
+                    "to": [{ "key_code": "right_command" }]
+                }
+            ],
+            "virtual_hid_keyboard": { "keyboard_type_v2": "iso" }
         }
     ]
 }
