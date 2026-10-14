@@ -1,9 +1,27 @@
 {
-    "global": { "check_for_updates_on_startup": false },
+    "global": { "check_for_updates": false },
     "profiles": [
         {
             "complex_modifications": {
                 "rules": [
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Change caps_lock to command+control+option+shift.",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
                     {
                         "description": "Swap Command+Delete Forward and Option+Delete Forward",
                         "manipulators": [
@@ -199,6 +217,10 @@
                             "to": [{ "key_code": "vk_none" }]
                         },
                         {
+                            "from": { "key_code": "grave_accent_and_tilde" },
+                            "to": [{ "key_code": "non_us_backslash" }]
+                        },
+                        {
                             "from": { "key_code": "left_command" },
                             "to": [{ "key_code": "left_option" }]
                         },
@@ -211,20 +233,16 @@
                             "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
                         },
                         {
+                            "from": { "key_code": "non_us_backslash" },
+                            "to": [{ "key_code": "grave_accent_and_tilde" }]
+                        },
+                        {
                             "from": { "key_code": "right_command" },
                             "to": [{ "key_code": "right_option" }]
                         },
                         {
                             "from": { "key_code": "right_option" },
                             "to": [{ "key_code": "right_command" }]
-                        },
-                        {
-                            "from": { "key_code": "grave_accent_and_tilde" },
-                            "to": [{ "key_code": "non_us_backslash" }]
-                        },
-                        {
-                            "from": { "key_code": "non_us_backslash" },
-                            "to": [{ "key_code": "grave_accent_and_tilde" }]
                         }
                     ]
                 }
@@ -235,10 +253,6 @@
                 {
                     "from": { "key_code": "application" },
                     "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
-                },
-                {
-                    "from": { "key_code": "caps_lock" },
-                    "to": [{ "key_code": "vk_none" }]
                 },
                 {
                     "from": { "key_code": "left_command" },
