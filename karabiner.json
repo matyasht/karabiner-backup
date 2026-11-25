@@ -5,7 +5,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Right Option + 2/3 to </>",
+                        "description": "Right Option + 2/3/4 to </>/|",
                         "manipulators": [
                             {
                                 "from": {
@@ -24,6 +24,19 @@
                                     {
                                         "key_code": "non_us_backslash",
                                         "modifiers": ["left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "4",
+                                    "modifiers": { "mandatory": ["right_option"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "non_us_backslash",
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
